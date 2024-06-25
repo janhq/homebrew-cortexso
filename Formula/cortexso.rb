@@ -1,26 +1,27 @@
-require "language/node"
 
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
-  url "https://github.com/janhq/cortex.git",
-      tag:      "v0.4.16",
-      revision: "0ec7db4dc0d6724dae76787f0f2a3e56a0ccdd7d"
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
+  version "0.4.16"
 
-  depends_on "node" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => :build
-
-  def install
-    cd "cortex-js" do
-      system "npm", "install", *Language::Node.local_npm_install_args
-      system "npm", "run", "build"
-      system "npm", "run", "build:binary"
-      chmod "+x", "cortex"
-      bin.install "cortex"
+  on_macos do
+    on_arm do
+      url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-arm64-mac.tar.gz"
+      sha256 "b03a139a77e88af962bef130b88de729e6598a0b29a750a7a6f52325d37f5b79"
     end
+    on_intel do
+      url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-amd64-mac.tar.gz"
+      sha256 "34ac85c702e16ca912fe23fffd4b2c9ad23b4cd942baae9f3f25d80efba228c9"
+    end
+  end
+  on_linux do
+    url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-amd64-linux.tar.gz"
+    sha256 "49455f4ba0db0b111bdaf2e6f5647fb2cd68adf77dd28a0f931f31503a105ddf"
+  end
+  def install
+    bin.install "cortex"
   end
 
   test do
