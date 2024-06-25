@@ -4,21 +4,21 @@ class Cortexso < Formula
   homepage "https://jan.ai/cortex"
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
-  version "0.4.17"
+  version "0.4.16"
 
   on_macos do
     on_arm do
       url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-arm64-mac.tar.gz"
-      sha256 "131807cec90dc70aed3aa50670e00a55aca0148175798a6065e4bab3a7644e84"
+      sha256 "b03a139a77e88af962bef130b88de729e6598a0b29a750a7a6f52325d37f5b79"
     end
     on_intel do
       url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-amd64-mac.tar.gz"
-      sha256 "4e28ec51e0ddd72dd3fe66b8137dfc456110f19f1434861a5c7a745603073077"
+      sha256 "34ac85c702e16ca912fe23fffd4b2c9ad23b4cd942baae9f3f25d80efba228c9"
     end
   end
   on_linux do
     url "https://github.com/janhq/cortex/releases/download/v#{version}/cortex-#{version}-amd64-linux.tar.gz"
-    sha256 "92917bba4d593f23e36c11045cd0db408eeaa3833afedb476500398866f2e53c"
+    sha256 "49455f4ba0db0b111bdaf2e6f5647fb2cd68adf77dd28a0f931f31503a105ddf"
   end
   def install
     bin.install "cortex"
