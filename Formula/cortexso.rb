@@ -3,8 +3,8 @@ require "language/node"
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
-  url "https://registry.npmjs.org/cortexso/-/cortexso-0.0.60.tgz"
-  sha256 "9aaf536bee23feb717591efeb1893911048d98693498df1939c8e5d58fdf8baf"
+  url "https://registry.npmjs.org/cortexso/-/cortexso-0.1.0.tgz"
+  sha256 "ad32120974c37b1e6bb8e745edf83ccf611045b38a21bafb8cd55fe2c638aeb9"
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
